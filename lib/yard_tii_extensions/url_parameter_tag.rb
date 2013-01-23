@@ -18,7 +18,7 @@ module YardForLiquid
 
 
     def set_text(text)
-      if text.include?(REQUIRED_MARK)
+      if text.try(:include?, REQUIRED_MARK)
         self.required = true
         @text = text.gsub(REQUIRED_MARK, '')
       else

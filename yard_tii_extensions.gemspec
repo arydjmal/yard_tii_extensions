@@ -4,18 +4,15 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{yard_tii_extensions}
-  s.version = "0.2.1"
+  s.name = "yard_tii_extensions"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Orion Delwaterman}]
-  s.date = %q{2012-01-17}
-  s.description = %q{    Set of extensions for YARD documentation tool commonly used by Time Inc. This includes routes
-    url params, response formats, and modifications that is used to build documentation for 
-    other Time Inc Developers to use our standard JSON services.
-}
-  s.email = %q{orion_delwaterman@timeinc.com}
-  s.executables = [%q{time_yardoc_setup}]
+  s.authors = ["Orion Delwaterman"]
+  s.date = "2013-01-23"
+  s.description = "    Set of extensions for YARD documentation tool commonly used by Time Inc. This includes routes\n    url params, response formats, and modifications that is used to build documentation for \n    other Time Inc Developers to use our standard JSON services.\n"
+  s.email = "orion_delwaterman@timeinc.com"
+  s.executables = ["time_yardoc_setup", "time_yardoc_setup_2"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -29,6 +26,8 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/time_yardoc_setup",
+    "bin/time_yardoc_setup_2",
+    "bin_templates/yard_documentation.rb.erb",
     "lib/tasks/yard_tii_extensions.rake",
     "lib/yard_tii_extensions.rb",
     "lib/yard_tii_extensions/active_record_attribute.rb",
@@ -52,6 +51,7 @@ Gem::Specification.new do |s|
     "lib/yard_tii_extensions/handlers/legacy/validate_confirmation_of_handler.rb",
     "lib/yard_tii_extensions/handlers/legacy/validate_presence_of_handler.rb",
     "lib/yard_tii_extensions/handlers/legacy/validator_handler_helper.rb",
+    "lib/yard_tii_extensions/handlers/mongo_mapper/key_handler.rb",
     "lib/yard_tii_extensions/handlers/register_filter_handler.rb",
     "lib/yard_tii_extensions/handlers/register_tag_handler.rb",
     "lib/yard_tii_extensions/handlers/super_serialize_handler.rb",
@@ -84,35 +84,35 @@ Gem::Specification.new do |s|
     "test/test_yard-tii-extensions.rb",
     "yard_tii_extensions.gemspec"
   ]
-  s.homepage = %q{http://github.com/delwaterman/yard_tii_extensions}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Set of extensions for YARD documentation tool commonly used by Time Inc.}
+  s.homepage = "http://github.com/delwaterman/yard_tii_extensions"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.24"
+  s.summary = "Set of extensions for YARD documentation tool commonly used by Time Inc."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<yard>, ["~> 0.7.4"])
+      s.add_runtime_dependency(%q<yard>, ["~> 0.8.3"])
       s.add_runtime_dependency(%q<bluecloth>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.2.3"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
     else
-      s.add_dependency(%q<yard>, ["~> 0.7.4"])
+      s.add_dependency(%q<yard>, ["~> 0.8.3"])
       s.add_dependency(%q<bluecloth>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_dependency(%q<bundler>, ["~> 1.2.3"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<yard>, ["~> 0.7.4"])
+    s.add_dependency(%q<yard>, ["~> 0.8.3"])
     s.add_dependency(%q<bluecloth>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+    s.add_dependency(%q<bundler>, ["~> 1.2.3"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
   end
