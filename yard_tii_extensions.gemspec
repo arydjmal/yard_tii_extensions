@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.date = "2013-01-23"
   s.description = "    Set of extensions for YARD documentation tool commonly used by Time Inc. This includes routes\n    url params, response formats, and modifications that is used to build documentation for \n    other Time Inc Developers to use our standard JSON services.\n"
   s.email = "orion_delwaterman@timeinc.com"
-  s.executables = ["time_yardoc_setup", "time_yardoc_setup_2"]
+  s.executables = ["time_yardoc_setup"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -26,8 +26,6 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/time_yardoc_setup",
-    "bin/time_yardoc_setup_2",
-    "bin_templates/yard_documentation.rb.erb",
     "lib/tasks/yard_tii_extensions.rake",
     "lib/yard_tii_extensions.rb",
     "lib/yard_tii_extensions/active_record_attribute.rb",
@@ -51,7 +49,6 @@ Gem::Specification.new do |s|
     "lib/yard_tii_extensions/handlers/legacy/validate_confirmation_of_handler.rb",
     "lib/yard_tii_extensions/handlers/legacy/validate_presence_of_handler.rb",
     "lib/yard_tii_extensions/handlers/legacy/validator_handler_helper.rb",
-    "lib/yard_tii_extensions/handlers/mongo_mapper/key_handler.rb",
     "lib/yard_tii_extensions/handlers/register_filter_handler.rb",
     "lib/yard_tii_extensions/handlers/register_tag_handler.rb",
     "lib/yard_tii_extensions/handlers/super_serialize_handler.rb",
